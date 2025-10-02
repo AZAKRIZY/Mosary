@@ -1,13 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Montserrat:ital,wght@0,100..900;1,100..900&family=SUSE+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
     --font-Montserrat:"Montserrat",sans-serif;
     --font-suse:"SUSE Mono";
     --font-inter:"Inter",sans-serif;
+    --font-Italianno:"Italianno",cursive;
+    --animate-sliding_left:sliding_left 1s ease-out;
+    --animate-appear:appear 1s ease-out;
+    --animate-sliding_bottom:sliding_bottom 0.7s ease-out;
+}
+@keyframes sliding_left{
+    0%{
+        transform:translateX(-100%)
+    }
+    100%{
+        transform:translateX(0)
+    }
+
 }
 
+@keyframes appear{
+    0%{
+        opacity:0
+    }
+    100%{
+        opacity:1
+    }
+}
 
+@keyframes sliding_bottom{
+      0% { transform: translateY(100%) }
+      70%  { transform: translateY(-15%) }
+      85%  { transform: translateY(8%) }  
+      95%  { transform: translateY(-4%) }
+      100% { transform: translateY(0) }
+}
 
 
 

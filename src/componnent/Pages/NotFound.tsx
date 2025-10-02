@@ -1,4 +1,5 @@
 import { BadgeX } from "lucide-react"
+import { NavLink } from "react-router-dom"
 
 const NotFound = () => {
     return (
@@ -7,7 +8,7 @@ const NotFound = () => {
                 <BadgeX className="size-10 " /> 404
             </h1>
             <h1 className="text-lg">This is an Uknown area</h1>
-            <p className="hover:underline">Go back</p>
+            <NavLink to={"/"} className=" cursor-pointer hover:underline">Go back</NavLink>
         </div>
     )
 }

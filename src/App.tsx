@@ -4,6 +4,7 @@ import Homepage from './componnent/Pages/Homepage'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './RootLayout'
 import NotFound from './componnent/Pages/NotFound'
+import List from './componnent/Pages/List'
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,13 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Homepage /> }
+    ]
+  },
+  {
+    path: "/List",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <List /> }
     ]
   },
   {
