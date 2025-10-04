@@ -1,9 +1,17 @@
 
+import MealList from "../small_componnent/MealList"
+import Searchbar from "../small_componnent/Searchbar"
+
 
 const List = () => {
   return (
     <div>
-      hello my friend
+      <div className="flex justify-center items-center">
+        <Searchbar placeholder="Search for your favorite recipe" />
+      </div>
+      <div className="p-10">
+        <MealList />
+      </div>
     </div>
   )
 }

@@ -20,7 +20,7 @@ const Homepage = () => {
             WELCOME!
           </h1>
         </div>
-        
+
         {/* Description Section */}
         <div className="w-full lg:w-[50vw] flex items-center justify-center lg:justify-end h-auto lg:h-[50vh]">
           <p className="w-full lg:w-[30vw] text-base sm:text-lg transition-colors animate-appear duration-500 ease-in-out text-center lg:text-left px-4 sm:px-0">
