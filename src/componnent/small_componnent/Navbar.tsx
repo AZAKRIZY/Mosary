@@ -24,10 +24,9 @@ function Navbar() {
           className={({ isActive }) =>
             `relative flex items-center justify-center w-10 h-10 rounded-xl
             transition-all duration-300 ease-in-out
-            ${
-              isActive
-                ? "bg-yellow-300/30 dark:bg-fuchsia-600/40 text-yellow-300 dark:text-fuchsia-400 shadow-md shadow-yellow-200/30 dark:shadow-fuchsia-900/40 scale-110"
-                : "text-gray-700 dark:text-gray-300 hover:text-yellow-300 dark:hover:text-fuchsia-400 hover:scale-110"
+            ${isActive
+              ? "bg-yellow-300/30 dark:bg-fuchsia-600/40 text-yellow-300 dark:text-fuchsia-400 shadow-md shadow-yellow-200/30 dark:shadow-fuchsia-900/40 scale-110"
+              : "text-gray-700 dark:text-gray-300 hover:text-yellow-300 dark:hover:text-fuchsia-400 hover:scale-110"
             }`
           }
         >
