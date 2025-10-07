@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RootLayout from './RootLayout'
 import NotFound from './componnent/Pages/NotFound'
 import List from './componnent/Pages/List'
+import RecipeDetail from './componnent/Pages/RecipeDetail'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
     path: "/List",
     element: <RootLayout />,
     children: [
-      { index: true, element: <List /> }
+      { index: true, element: <List /> },
+      { path: ":id", element: <RecipeDetail /> } // 👈 new route
     ]
   },
   {
