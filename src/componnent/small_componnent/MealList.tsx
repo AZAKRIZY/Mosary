@@ -105,7 +105,7 @@ const MealList = ({ searchResults = [], loading = false }: MealListProps) => {
         {currentMeals.map((meal, index) => (
           <Link to={`/List/${meal.idMeal}`} key={meal.idMeal}>
             <article
-              className="animate-sliding_bottom dark:bg-gray-500 backdrop-blur-xl rounded-2xl border border-gray-100 dark:border-gray-500
+              className="animate-appear dark:bg-gray-500 backdrop-blur-xl rounded-2xl border border-gray-100 dark:border-gray-500
                 shadow-lg hover:shadow-xl hover:shadow-black/20 transition-all duration-700 ease-in-out
                 overflow-hidden hover:scale-105 hover:-translate-y-2"
               style={{ animationDelay: `${index * 100}ms` }}
