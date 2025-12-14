@@ -107,7 +107,7 @@ const MealList = ({ searchResults = [], loading = false }: MealListProps) => {
             <article
               className="animate-appear dark:bg-gray-500 backdrop-blur-xl rounded-2xl border border-gray-100 dark:border-gray-500
                 shadow-lg hover:shadow-xl hover:shadow-black/20 transition-all duration-700 ease-in-out
-                overflow-hidden hover:scale-105 hover:-translate-y-2"
+                overflow-hidden hover:scale-101 hover:-translate-y-2"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <img
@@ -120,8 +120,8 @@ const MealList = ({ searchResults = [], loading = false }: MealListProps) => {
                   {meal.strMeal}
                 </h3>
                 <div className="flex items-center gap-3 text-sm transition-colors duration-700">
-                  <Badge color="gray">{meal.strCategory}</Badge>
-                  <Badge color="gray">{meal.strArea}</Badge>
+                  <p className="p-2 bg-amber-200/30 rounded-full dark:bg-fuchsia-400/70 dark:text-gray-200">{meal.strCategory}</p>
+                  <p className="p-2 bg-amber-200/30 rounded-full dark:bg-fuchsia-400/70 dark:text-gray-200">{meal.strArea}</p>
                 </div>
               </div>
             </article>
@@ -142,25 +142,6 @@ const MealList = ({ searchResults = [], loading = false }: MealListProps) => {
     </div>
   );
 };
-
-const Badge = ({
-  color,
-  children,
-}: {
-  color: "yellow" | "gray";
-  children: React.ReactNode;
-}) => {
-  const styles = {
-    yellow: "bg-yellow-300/20 text-yellow-700 border-yellow-300/30",
-    gray: "bg-gray-200/50 text-gray-600 border-gray-300/30",
-  };
-  return (
-    <span
-      className={`px-3 py-1 rounded-full border transition-colors duration-700 ${styles[color]}`}
-    >
-      {children}
-    </span>
-  );
-};
+;
 
 export default MealList;

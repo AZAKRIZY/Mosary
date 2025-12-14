@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import YoutubeCheck from "../small_componnent/YoutubeCheck";
 
 interface Meal {
   idMeal: string;
@@ -36,18 +37,18 @@ const RecipeDetail = () => {
 
   // Function to format instructions into steps
   const formatInstructions = (instructions: string) => {
-    // Split by "step" followed by a number
+    // Split by step if the word "step" is available followed by a number
     const steps = instructions.split(/(?=step \d+)/i);
-    
+
     // If no steps found, return the whole text
     if (steps.length <= 1) {
       return (
-        <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+        <p className="text-gray-700 dark:text-gray-300 font-Montserrat leading-relaxed text-justify">
           {instructions}
         </p>
       );
     }
-    
+
     return (
       <div className="space-y-6">
         <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
@@ -56,11 +57,11 @@ const RecipeDetail = () => {
         <div className="space-y-5">
           {steps.map((step, index) => {
             if (!step.trim()) return null;
-            
+
             // Clean up the step text
-            const cleanedStep = step.trim().replace(/^step \d+\s*/i, '');
+            const cleanedStep = step.trim().replace(/^step \d+\s*/i, "");
             const stepNumber = index + 1;
-            
+
             return (
               <div key={index} className="relative pl-10 pb-5">
                 {/* Step number with decorative line */}
@@ -69,12 +70,12 @@ const RecipeDetail = () => {
                     {stepNumber}
                   </span>
                 </div>
-                
+
                 {/* Step text */}
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   {cleanedStep}
                 </p>
-                
+
                 {/* Divider line (except for last step) */}
                 {index < steps.length - 1 && (
                   <div className="absolute bottom-0 left-4 w-0.5 h-5 bg-gray-300/30 dark:bg-gray-700/60"></div>
@@ -111,7 +112,7 @@ const RecipeDetail = () => {
         className="max-w-4xl mx-auto bg-white/30 dark:bg-gradient-to-br 
         dark:from-gray-900/80 dark:to-gray-800/80 backdrop-blur-xl 
         rounded-3xl border border-gray-300/30 dark:border-gray-700/60
-        shadow-lg shadow-black/10 dark:shadow-[0_8px_30px_rgba(0,0,0,0.7)]
+        shadow-2xl shadow-black/10 dark:shadow-[0_8px_30px_rgba(0,0,0,0.7)]
         overflow-hidden transition-all duration-500 ease-in-out"
       >
         {/* Fixed image container to prevent white lines */}
@@ -140,21 +141,7 @@ const RecipeDetail = () => {
           {/* Formatted instructions */}
           {formatInstructions(meal.strInstructions)}
 
-          {meal.strYoutube && (
-            <div className="mt-8 pt-6 border-t border-gray-300/30 dark:border-gray-700/60">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4 text-center">
-                Watch Tutorial:
-              </h3>
-              <div className="aspect-video rounded-2xl overflow-hidden border border-gray-300/30 dark:border-gray-700/60">
-                <iframe
-                  src={meal.strYoutube.replace("watch?v=", "embed/")}
-                  title={meal.strMeal}
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-            </div>
-          )}
+          <YoutubeCheck url={meal.strYoutube} title={meal.strMeal} />
 
           <div className="flex justify-center mt-8 pt-6 border-t border-gray-300/30 dark:border-gray-700/60">
             <Link
